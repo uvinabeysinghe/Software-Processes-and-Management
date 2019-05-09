@@ -2,7 +2,7 @@ h1 {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 300%
 }
-p {
+html {
 	font-family: Arial, Helvetica, sans-serif;
 }
 #middle {
@@ -16,4 +16,8 @@ p {
     right: 0;
     bottom: 0;
     left: 0;
+}
+
+table, th, td {
+  border: 1px solid black;
 }

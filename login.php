@@ -10,41 +10,19 @@ include "auth.php";
 
 $wrong_login = "";
 
-if(isset($_POST['submitted'])) {
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbName);
+include "function.php";
 
-	// Check connection
-	if ($conn->connect_error) {
-    	die("Connection failed: " . $conn->connect_error);
-	} 
-
-	$email = $_POST['email'];
-	$pwd = md5($_POST['pwd']);
-
-	$sql = "SELECT * FROM spm_customer_information WHERE email = '$email' AND password = '$pwd'";
-	$result = $conn->query($sql);
-	if ($result->num_rows > 0) {
-		session_start();
-		while($row = $result->fetch_assoc()) {
-			$_SESSION["uid"] = $row["customer_id"];
-		}
-		echo "<script type='text/javascript'>location.href = './view_booking.php';</script>";
-    	exit;
-	} else {
-		$wrong_login = "Wrong email or password";
-	}
-
-	$conn->close();
-}
 ?>
 
 <html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+	</head>
 	<body>
 		<form id='login' action='login.php' method='post' accept-charset='UTF-8'>
 			<fieldset>
 				<legend>Login</legend>
-					<input type='hidden' name='submitted' id='submitted' value='1'/>
+					<input type='hidden' name='login' id='login' value='1'/>
 					<label for='email' >Email: </label>
 					<input type='text' name='email' id='email' maxlength="50" /><br>
 					<label for='pwd' >Password: </label>
@@ -54,5 +32,7 @@ if(isset($_POST['submitted'])) {
 					<input type='submit' name='Submit' value='Submit' />
 			</fieldset>
 		</form>
+		<button onclick="location.href = './register.php';" id="register">New here?</button>
+		<button onclick="location.href = './forgot_pwd.php';" id="register">Forgot Password?</button>
 	</body>
 </html>
