@@ -31,28 +31,71 @@ while($row = $result->fetch_assoc()) {
 }
 ?>
 
-<html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="styles/style.css">
-	</head>
-	<body>
-		<button onclick="location.href = './update.php';" id="update">View/Update Information</button>
-		<button onclick="location.href = './req_booking.php';" id="update">Book a New Appointment</button>
-		<form id='logout' action='function.php' method='post' accept-charset='UTF-8'>
-			<input type='submit' name='logout' value='logout' />
-		</form>
-		<h1>Welcome, <?php echo $name; ?>.</h1>
-		<h2>Appointment List</h2>
-		<table>
-			<tr>
-				<th>Date</th>
-				<th>Time From</th>
-				<th>Time To</th>
-				<th>Prof. Type</th>
-				<th>Prof. Name</th>
-				<th>Message</th>
-				<th>Action</th>
-			</tr>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Main Page</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
+					<p>
+						Welcome, <?php echo $name; ?>
+					</p>
+				</div>
+				<div class="col-md-4">
+				</div>
+				<div class="col-md-4">
+					 
+					<button type="button" class="btn btn-success" onclick="location.href = './logout.php';">
+						Logout
+					</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					 
+					<button onclick="location.href = './update.php';" type="button" class="btn btn-success">
+						View/Update Information
+					</button>
+				</div>
+				<div class="col-md-6">
+					 
+					<button onclick="location.href = './req_booking.php';" type="button" class="btn btn-success">
+						New Booking
+					</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h3>
+						Appointment List
+					</h3>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Date</th>
+								<th>Time From</th>
+								<th>Time To</th>
+								<th>Prof. Type</th>
+								<th>Prof. Name</th>
+								<th>Message</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
 <?php 
 	$cur_date = date("Y-m-d");
 	$sql = "SELECT ab.booking_id, ab.hc_prof_id, ab.date, ab.message, pt.type, hc.name, t.from, t.to
@@ -80,17 +123,27 @@ while($row = $result->fetch_assoc()) {
 <?php
 	}
 ?>
-		</table>
-		<h2>Appointment History</h2>
-		<table>
-			<tr>
-				<th>Date</th>
-				<th>Time From</th>
-				<th>Time To</th>
-				<th>Prof. Type</th>
-				<th>Prof. Name</th>
-				<th>Message</th>
-			</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h3>
+						Appointment History
+					</h3>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Date</th>
+								<th>Time From</th>
+								<th>Time To</th>
+								<th>Prof. Type</th>
+								<th>Prof. Name</th>
+								<th>Message</th>
+							</tr>
+						</thead>
+						<tbody>
 <?php 
 	$sql = "SELECT ab.hc_prof_id, ab.date, ab.message, pt.type, hc.name, t.from, t.to
 	FROM spm_appointment_booking AS ab
@@ -116,17 +169,27 @@ while($row = $result->fetch_assoc()) {
 <?php
 	}
 ?>
-		</table>
-		<h2>Canceled List</h2>
-		<table>
-			<tr>
-				<th>Date</th>
-				<th>Time From</th>
-				<th>Time To</th>
-				<th>Prof. Type</th>
-				<th>Prof. Name</th>
-				<th>Message</th>
-			</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h3>
+						Canceled Appointments
+					</h3>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Date</th>
+								<th>Time From</th>
+								<th>Time To</th>
+								<th>Prof. Type</th>
+								<th>Prof. Name</th>
+								<th>Message</th>
+							</tr>
+						</thead>
+						<tbody>
 <?php 
 	$sql = "SELECT ab.hc_prof_id, ab.date, ab.message, pt.type, hc.name, t.from, t.to
 	FROM spm_appointment_booking AS ab
@@ -152,6 +215,16 @@ while($row = $result->fetch_assoc()) {
 <?php
 	}
 ?>
-		</table>
-	</body>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
 </html>

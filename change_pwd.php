@@ -40,30 +40,100 @@ if (isset($_GET['email'])) {
 $message = "";
 ?>
 
+<!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="styles/style.css">
-	</head>
-	<body>
-		<form id='logout' action='function.php' method='post' accept-charset='UTF-8'>
-			<input type='submit' name='logout' value='logout' />
-		</form>
+  <head>
+    <title>Change Password</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="files/changepassword/styles.css" type="text/css" rel="stylesheet"/>
+    <script src="data/document.js"></script>
+    <script src="files/changepassword/data.js"></script>
+    <script type="text/javascript">
+      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
+      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
+      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
+    </script>
+  </head>
+  <body>
+  	<form id='change_pwd' action='change_pwd.php' method='post' accept-charset='UTF-8'>
+  	<input type='hidden' name='change_pwd' id='change_pwd' value='1'/>
+  	<input type='hidden' name='uid' id='uid' value='<?php echo $uid; ?>'>
+    <div id="base" class="">
 
-		<form id='change_pwd' action='change_pwd.php' method='post' accept-charset='UTF-8'>
-			<fieldset>
-				<legend>Change Password</legend>
-					<input type='hidden' name='change_pwd' id='change_pwd' value='1'/>
-					<input type='hidden' name='uid' id='uid' value='<?php echo $uid; ?>'>
-					<label for='pwd' >New Password: </label>
-					<input type='password' name='pwd' id='pwd' maxlength="50"/><br>
-					<label for='repwd' >Retype New Password: </label>
-					<input type='password' name='repwd' id='repwd' maxlength="50"/><br>
-					
-					<p><?php echo $message; ?></p>
+      <!-- Unnamed (Rectangle) -->
+      <div id="u126" class="ax_default box_1">
+        <div id="u126_div" class=""></div>
+        <div id="u126_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
 
-					<input type='submit' name='Change' value='Change' />
-			</fieldset>
-		</form>
-		<button onclick="location.href = './update.php';" id="update">Back to Update</button>
-	</body>
+      <!-- Unnamed (Rectangle) -->
+      <div id="u127" class="ax_default paragraph">
+        <div id="u127_div" class=""></div>
+        <div id="u127_text" class="text ">
+          <p><span style="text-decoration:none;">NEW PASSWORD</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Text Field) -->
+      <div id="u128" class="ax_default text_field">
+        <div id="u128_div" class=""></div>
+        <input id="u128_input" type="password" value="" name="pwd" class="u128_input"/>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u129" class="ax_default button">
+        <div id="u129_div" class=""></div>
+        <div id="u129_text" class="text ">
+          <input type='submit' name='Change' value='Change' />
+          <!-- <p><span style="text-decoration:none;">Submit</span></p> -->
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u130" class="ax_default button">
+        <div id="u130_div" class=""></div>
+        <div id="u130_text" class="text ">
+          <p onclick="location.href = './update.php';" id="update"><span onclick="location.href = './update.php';" id="update" style="text-decoration:none;">Back to Update</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u131" class="ax_default paragraph">
+        <div id="u131_div" class=""></div>
+        <div id="u131_text" class="text ">
+          <p><span style="text-decoration:none;">health-care centre </span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Shape) -->
+      <div id="u132" class="ax_default icon">
+        <img id="u132_img" class="img " src="images/register/u30.svg"/>
+        <div id="u132_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u133" class="ax_default paragraph">
+        <div id="u133_div" class=""></div>
+        <div id="u133_text" class="text ">
+          <p><span style="text-decoration:none;">RETYPE NEW PASSWORD</span></p>
+          <p><?php echo $message; ?></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Text Field) -->
+      <div id="u134" class="ax_default text_field">
+        <div id="u134_div" class=""></div>
+        <input id="u134_input" type="password" value="" name="repwd" class="u134_input"/>
+      </div>
+    </div>
+    <script src="resources/scripts/axure/ios.js"></script>
+  	</form>
+  </body>
 </html>
