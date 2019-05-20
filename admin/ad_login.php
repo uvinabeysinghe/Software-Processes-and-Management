@@ -13,8 +13,7 @@ if ($conn->connect_error) {
 
 if (isset($_GET['submit'])) {
 
-echo $_GET['email'];
-echo $_GET['psw'];
+
 
 $email = $_GET['email'];
 $password = md5($_GET['psw']);
@@ -27,7 +26,7 @@ if ($result->num_rows > 0) {
     $_SESSION['use']=$email;
     Redirect('./main.php', false);
 } else {
-    echo "Uer Not Found";
+    echo "User Not Found";
 }
 
 }
