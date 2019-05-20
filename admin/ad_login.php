@@ -26,7 +26,7 @@ if ($result->num_rows > 0) {
     $_SESSION['use']=$email;
     Redirect('./main.php', false);
 } else {
-    echo "User Not Found";
+    echo "Wrong username or password. Try again!";
 }
 
 }
