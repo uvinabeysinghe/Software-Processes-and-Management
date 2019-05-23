@@ -44,10 +44,10 @@ function send_new_app($option, $my_email, $my_name, $opp_name, $date, $time, $me
 	$subject = "New Appointment Mail";
 	if ($option == "customer") {
 		$body = "Hi ".$my_name.", this is an email sent by the Health Care Professional Service Website to inform you about the new appointment.
-			On ".$date.", ".$time.", you have an appointment with Mr. ".$opp_name.". You left a message saying: ".$message;
+On ".$date.", ".$time.", you have an appointment with Mr. ".$opp_name.". You left a message saying: ".$message;
 	} else if ($option == "professional") {
 		$body = "Hi ".$my_name.", this is an email sent by the Health Care Professional Service Website to inform you about the new appointment.
-			On ".$date.", ".$time.", you have an appointment with Mr. ".$opp_name.". He left a message saying: ".$message;
+On ".$date.", ".$time.", you have an appointment with Mr. ".$opp_name.". He left a message saying: ".$message;
 	}
 	$to = $my_email;
 

@@ -200,7 +200,7 @@ if(isset($_POST['new_req'])) {
 				WHERE time_id = $tid";
 		$result = $conn->query($sql);
 		while($row = $result->fetch_assoc()) {
-			$time = $row['from'] + " - " + $row['to'];
+			$time = $row['from'];
 		}
 		$sql = "SELECT name, email 
 				FROM spm_customer_information
