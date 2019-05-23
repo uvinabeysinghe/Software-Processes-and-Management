@@ -133,19 +133,19 @@ include "function.php";
       <!-- Unnamed (Text Field) -->
       <div id="u144" class="ax_default text_field">
         <div id="u144_div" class=""></div>
-        <input id="u144_input" type="text" name="addr" value="<?php echo $addr; ?>" class="u144_input"/>
+        <input id="u144_input" type="text" name="addr" value="<?php echo $addr; ?>" class="u144_input" required/>
       </div>
 
       <!-- Unnamed (Text Field) -->
       <div id="u145" class="ax_default text_field">
         <div id="u145_div" class=""></div>
-        <input id="u145_input" type="text" name="phone" value="<?php echo $phone; ?>" class="u145_input"/>
+        <input id="u145_input" type="text" name="phone" value="<?php echo $phone; ?>" class="u145_input" required/>
       </div>
 
       <!-- Unnamed (Text Field) -->
       <div id="u146" class="ax_default text_field">
         <div id="u146_div" class=""></div>
-        <input id="u146_input" type="text" name="name" value="<?php echo $name; ?>" class="u146_input"/>
+        <input id="u146_input" type="text" name="name" value="<?php echo $name; ?>" class="u146_input" required/>
       </div>
 
       <!-- Unnamed (Rectangle) -->

@@ -169,7 +169,7 @@ include "function.php";
       <!-- Unnamed (Text Field) -->
       <div id="u166" class="ax_default text_field">
         <div id="u166_div" class=""></div>
-        <input name="message" id="u166_input" type="text" value="" class="u166_input"/>
+        <input name="message" id="u166_input" type="text" value="" class="u166_input" required/>
       </div>
 
       <!-- Unnamed (Rectangle) -->
@@ -217,14 +217,14 @@ include "function.php";
       <!-- Unnamed (Droplist) -->
       <div id="u172" class="ax_default droplist">
         <div id="u172_div" class="">
-        <input type="date" name="date" id="date" onchange="handler(event);"/>
+        <input type="date" name="date" id="date" onchange="handler(event);" required/>
         </div>
       </div>
 
       <!-- Unnamed (Droplist) -->
       <div id="u173" class="ax_default droplist">
         <div id="u173_div" class=""></div>
-        <select name="time" id="u173_input" class="u173_input">
+        <select name="time" id="u173_input" class="u173_input" required>
         </select>
       </div>
 
@@ -232,7 +232,7 @@ include "function.php";
       <div id="u174" class="ax_default button">
         <div id="u174_div" class=""></div>
         <div id="u174_text" class="text ">
-          <input type='submit' name='Book' value='Book' />
+          <input type='submit' name='Book' value='Book' required/>
         </div>
       </div>
 

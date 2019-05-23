@@ -82,7 +82,7 @@ $message = "";
       <!-- Unnamed (Text Field) -->
       <div id="u128" class="ax_default text_field">
         <div id="u128_div" class=""></div>
-        <input id="u128_input" type="password" value="" name="pwd" class="u128_input"/>
+        <input id="u128_input" type="password" value="" name="pwd" class="u128_input" required/>
       </div>
 
       <!-- Unnamed (Rectangle) -->

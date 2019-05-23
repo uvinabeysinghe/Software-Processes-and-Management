@@ -31,7 +31,7 @@ include "function.php";
   </head>
   <body>
   <form id='login' action='function.php' method='post' accept-charset='UTF-8'>
-  	<input type='hidden' name='forget_pwd' id='forget_pwd' value='1'/>
+  	<input type='hidden' name='forget_pwd' id='forget_pwd' value='1' required/>
     <div id="base" class="">
 
       <!-- Unnamed (Rectangle) -->

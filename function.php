@@ -73,6 +73,7 @@ if(isset($_POST['register'])) {
 	$addr = $_POST['addr'];
 	$phone = $_POST['phone'];
 	$email = $_POST['email'];
+	//$pwd = $_POST['pwd'];
 	$pwd = md5($_POST['pwd']);
 
 	$sql = "SELECT email
@@ -80,7 +81,7 @@ if(isset($_POST['register'])) {
 			WHERE email = '$email'";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-		$check_email = "This email had already been used.";
+		$check_email = "been used.";
 	} else {
 		$sql = "INSERT INTO spm_customer_information
 				(name, home_address, phone_no, email, password)
@@ -171,6 +172,8 @@ if(isset($_POST['forget_pwd'])) {
 		echo "<script type='text/javascript'>location.href = './login.php';</script>";
     	exit;
 	}
+	echo "<script type='text/javascript'>location.href = './login.php';</script>";
+	exit;
 }
 
 /*
@@ -218,11 +221,14 @@ if(isset($_POST['new_req'])) {
 		send_new_app("customer", $c_email, $c_name, $p_name, $date, $time, $message);
 		
 		send_new_app("professional", $p_email, $p_name, $c_name, $date, $time, $message);
-    	//echo "<script type='text/javascript'>location.href = './view_booking.php';</script>";
-    	//exit;
-	} else {
-    	echo "Error: " . $sql . "<br>" . $conn->error;
-	}
+    	echo "<script type='text/javascript'>location.href = './view_booking.php';</script>";
+    	exit;
+	} 
+	//else {
+    //	echo "Error: " . $sql . "<br>" . $conn->error;
+	//}
+	echo "<script type='text/javascript'>location.href = './view_booking.php';</script>";
+    	exit;
 }
 
 /*

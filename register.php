@@ -62,31 +62,31 @@ include "function.php";
       <!-- Unnamed (Text Field) -->
       <div id="u17" class="ax_default text_field">
         <div id="u17_div" class=""></div>
-        <input id="u17_input" type="text" name='addr' value="" class="u17_input"/>
+        <input id="u17_input" type="text" name='addr' value="" class="u17_input" required/>
       </div>
 
       <!-- Unnamed (Text Field) -->
       <div id="u18" class="ax_default text_field">
         <div id="u18_div" class=""></div>
-        <input id="u18_input" type="text" name='email' value="" class="u18_input"/>
+        <input id="u18_input" type="text" name='email' value="" class="u18_input" required/>
       </div>
 
       <!-- Unnamed (Text Field) -->
       <div id="u19" class="ax_default text_field">
         <div id="u19_div" class=""></div>
-        <input id="u19_input" type="password" name='pwr' value="" class="u19_input"/>
+        <input id="u19_input" type="password" name='pwd' class="u19_input" required/>
       </div>
 
       <!-- Unnamed (Text Field) -->
       <div id="u20" class="ax_default text_field">
         <div id="u20_div" class=""></div>
-        <input id="u20_input" type="text" name='phone' value="" class="u20_input"/>
+        <input id="u20_input" type="text" name='phone' value="" class="u20_input" required/>
       </div>
 
       <!-- Unnamed (Text Field) -->
       <div id="u21" class="ax_default text_field">
         <div id="u21_div" class=""></div>
-        <input id="u21_input" type="text" name="name" value="" class="u21_input"/>
+        <input id="u21_input" type="text" name="name" value="" class="u21_input" required/>
       </div>
 
       <!-- Unnamed (Rectangle) -->
