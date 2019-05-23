@@ -92,19 +92,19 @@ $conn->close();
       <!-- Unnamed (Text Field) -->
       <div id="u262" class="ax_default text_field">
         <div id="u262_div" class=""></div>
-        <input id="u262_input" type="text" value="" name="name" class="u262_input"/>
+        <input id="u262_input" type="text" value="" name="name" class="u262_input" required />
       </div>
 
       <!-- Unnamed (Text Field) -->
       <div id="u263" class="ax_default text_field">
         <div id="u263_div" class=""></div>
-        <input id="u263_input" type="text" value="" name="charge" class="u263_input"/>
+        <input id="u263_input" type="text" value="" name="charge" class="u263_input" required/>
       </div>
 
       <!-- Unnamed (Text Field) -->
       <div id="u264" class="ax_default text_field">
         <div id="u264_div" class=""></div>
-        <input id="u264_input" type="text" value="" name="email" class="u264_input"/>
+        <input id="u264_input" type="text" value="" name="email" class="u264_input" required/>
       </div>
 
       <!-- Unnamed (Text Field) -->
@@ -174,7 +174,7 @@ $conn->close();
 
       <!-- Unnamed (Shape) -->
       <div id="u273" class="ax_default icon">
-        <img id="u273_img" class="img " src="images/register/u30.svg"/>
+        <img id="u273_img" class="img " src="../images/register/u30.svg"/>
         <div id="u273_text" class="text " style="display:none; visibility: hidden">
           <p></p>
         </div>

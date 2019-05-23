@@ -1,26 +1,17 @@
 <?php  session_start(); ?>
 <?php
 include "../auth.php";
-
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbName);
-
 // Check connection
 if ($conn->connect_error) {
    die("Connection failed: " . $conn->connect_error);
 }
-
 if (isset($_GET['submit'])) {
-
-
-
 $email = $_GET['email'];
 $password = md5($_GET['psw']);
-
 $sql = "select * from spm_admin where email = '$email' AND password = '$password'";
 $result = $conn->query($sql);
-
 if ($result->num_rows > 0) {
     // output data of each row
     $_SESSION['use']=$email;
@@ -28,18 +19,13 @@ if ($result->num_rows > 0) {
 } else {
     echo "Wrong username or password. Try again!";
 }
-
 }
-
 function Redirect($url, $permanent = false)
 {
     header('Location: ' . $url, true, $permanent ? 301 : 302);
-
     exit();
 }
-
 $conn->close();
-
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +46,7 @@ $conn->close();
     </script>
   </head>
   <body>
-  	<form name="login" action="" method = "get">
+    <form name="login" action="" method = "get">
     <div id="base" class="">
 
       <!-- Unnamed (Rectangle) -->
