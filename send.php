@@ -7,7 +7,7 @@ function send_config() {
 	$from_name = "Dynamic Devs";
 	$mail = new PHPMailer();  // create a new object
 	$mail->IsSMTP(); // enable SMTP
-	$mail->SMTPDebug = 2;  // debugging: 1 = errors and messages, 2 = messages only
+	//$mail->SMTPDebug = 2;  // debugging: 1 = errors and messages, 2 = messages only
 	$mail->SMTPAuth = true;  // authentication enabled
 	$mail->SMTPSecure = 'tls'; // secure transfer enabled REQUIRED for GMail
 	$mail->SMTPAutoTLS = false;
@@ -48,6 +48,26 @@ On ".$date.", ".$time.", you have an appointment with Mr. ".$opp_name.". You lef
 	} else if ($option == "professional") {
 		$body = "Hi ".$my_name.", this is an email sent by the Health Care Professional Service Website to inform you about the new appointment.
 On ".$date.", ".$time.", you have an appointment with Mr. ".$opp_name.". He left a message saying: ".$message;
+	}
+	$to = $my_email;
+
+	$mail->Subject = $subject;
+	$mail->Body = $body;
+	$mail->AddAddress($to);
+	if(!$mail->Send()) {
+    	$error = 'Mail error: '.$mail->ErrorInfo;
+	}
+}
+
+function send_cancel_app($option, $my_email, $my_name, $opp_name, $date, $time) {
+	$mail = send_config();
+	$subject = "Cancel Appointment Mail";
+	if ($option == "customer") {
+		$body = "Hi ".$my_name.", this is an email sent by the Health Care Professional Service Website to confirm your appointment cancelation.
+The appointment on ".$date.", ".$time." with Mr. ".$opp_name." has been cancelled.";
+	} else if ($option == "professional") {
+		$body = "Hi ".$my_name.", this is an email sent by the Health Care Professional Service Website to inform you about a cancelled appointment.
+The appointment on ".$date.", ".$time." with Mr. ".$opp_name." has been cancelled.";
 	}
 	$to = $my_email;
 

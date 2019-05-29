@@ -242,9 +242,43 @@ if(isset($_POST['cancel'])) {
 			SET status = 0
 			WHERE booking_id = $bid";
 	$result = $conn->query($sql);
-
 	
 	if ($conn->query($sql) === TRUE) {
+		$sql = "SELECT hc_prof_id, customer_id, date, time_id
+				FROM spm_appointment_booking
+				WHERE booking_id = $bid";
+		$result = $conn->query($sql);
+		while($row = $result->fetch_assoc()) {
+			$tid = $row['time_id'];
+			$uid = $row['customer_id'];
+			$pid = $row['hc_prof_id'];
+			$date = $row['date'];
+		}
+		$sql = "SELECT *
+				FROM spm_time_slot
+				WHERE time_id = $tid";
+		$result = $conn->query($sql);
+		while($row = $result->fetch_assoc()) {
+			$time = $row['from'];
+		}
+		$sql = "SELECT name, email 
+				FROM spm_customer_information
+				WHERE customer_id = $uid";
+		$result = $conn->query($sql);
+		while($row = $result->fetch_assoc()) {
+			$c_name = $row['name'];
+			$c_email = $row['email'];
+		}
+		$sql = "SELECT name, email 
+				FROM spm_hc_prof_info
+				WHERE hc_prof_id = $pid";
+		$result = $conn->query($sql);
+		while($row = $result->fetch_assoc()) {
+			$p_name = $row['name'];
+			$p_email = $row['email'];
+		}
+		send_cancel_app("customer", $c_email, $c_name, $p_name, $date, $time);
+		send_cancel_app("professional", $p_email, $p_name, $c_name, $date, $time);
     	$conn->close();
     	echo "<script type='text/javascript'>location.href = './view_booking.php';</script>";
     	exit;
