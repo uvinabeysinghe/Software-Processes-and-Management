@@ -1,32 +1,5 @@
 <?php  session_start(); ?>
-<?php
-include "../auth.php";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbName);
-// Check connection
-if ($conn->connect_error) {
-   die("Connection failed: " . $conn->connect_error);
-}
-if (isset($_GET['submit'])) {
-$email = $_GET['email'];
-$password = md5($_GET['psw']);
-$sql = "select * from spm_admin where email = '$email' AND password = '$password'";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    // output data of each row
-    $_SESSION['use']=$email;
-    Redirect('./main.php', false);
-} else {
-    echo "Wrong username or password. Try again!";
-}
-}
-function Redirect($url, $permanent = false)
-{
-    header('Location: ' . $url, true, $permanent ? 301 : 302);
-    exit();
-}
-$conn->close();
-?>
+
 
 <!DOCTYPE html>
 <html>
@@ -46,9 +19,8 @@ $conn->close();
     </script>
   </head>
   <body>
-    <form name="login" action="" method = "get">
+    <form name="login" action="ad_login.php" method = "post">
     <div id="base" class="">
-
       <!-- Unnamed (Rectangle) -->
       <div id="u176" class="ax_default box_1">
         <div id="u176_div" class=""></div>
@@ -59,7 +31,33 @@ $conn->close();
 
       <!-- Unnamed (Rectangle) -->
       <div id="u177" class="ax_default box_2">
-        <div id="u177_div" class=""></div>
+        <div id="u177_div" class=""><?php
+include "../auth.php";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbName);
+// Check connection
+if ($conn->connect_error) {
+   die("Connection failed: " . $conn->connect_error);
+}
+if (isset($_POST['submit'])) {
+  $email = $_POST['email'];
+  $password = md5($_POST['psw']);
+  $sql = "select * from spm_admin where email = '$email' AND password = '$password'";
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+    // output data of each row
+    $_SESSION['use']=$email;
+    Redirect('./main.php', false);
+  } else {
+    echo  "Wrong username or password.";
+  }
+}
+function Redirect($url, $permanent = false) {
+    header('Location: ' . $url, true, $permanent ? 301 : 302);
+    exit();
+}
+$conn->close();
+?></div>
         <div id="u177_text" class="text " style="display:none; visibility: hidden">
           <p></p>
         </div>
@@ -117,6 +115,7 @@ $conn->close();
         </div>
       </div>
     </div>
+
     <script src="resources/scripts/axure/ios.js"></script>
     </form>
   </body>

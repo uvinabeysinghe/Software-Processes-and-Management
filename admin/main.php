@@ -1,3 +1,15 @@
+<?php  
+session_start();
+if(!isset($_SESSION['use'])) {
+  Redirect("./ad_login.php");
+}
+
+function Redirect($url, $permanent = false) {
+    header('Location: ' . $url, true, $permanent ? 301 : 302);
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
