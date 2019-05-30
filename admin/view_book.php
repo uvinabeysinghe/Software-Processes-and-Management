@@ -18,6 +18,11 @@ if (isset($_GET['add'])) {
   Redirect("./new_prof.php");
 }
 
+if (isset($_GET['back'])) {
+  Redirect("./main.php");
+}
+
+
 if (isset($_GET['logout'])){
   session_destroy();
   Redirect("./ad_login.php");
@@ -34,10 +39,10 @@ function Redirect($url, $permanent = false)
   <head>
     <link rel="stylesheet" type="text/css" href="../styles/style.css">
   </head>
-  <body>  
+  <body>
     <form name="login" action="" method = "get">
       <div class="container">
-
+        <button type="submit" name="back" >Back </button>
         <button type="submit" name="add" >Add new healthcare professionals </button>
         <button type="logout" name="logout" >Logout </button>
 
@@ -52,12 +57,12 @@ function Redirect($url, $permanent = false)
             <th>Message</th>
             <th>Status</th>
           </tr>
-<?php 
+<?php
   $sql = "SELECT ab.hc_prof_id, ab.date, ab.message, pt.type, hc.name AS p_name, t.from, t.to, ci.name AS c_name, ab.status
   FROM spm_appointment_booking AS ab
-    INNER JOIN spm_hc_prof_info AS hc 
+    INNER JOIN spm_hc_prof_info AS hc
       ON ab.hc_prof_id = hc.hc_prof_id
-    INNER JOIN spm_prof_type AS pt 
+    INNER JOIN spm_prof_type AS pt
       ON hc.type_id = pt.type_id
     INNER JOIN spm_time_slot AS t
       ON ab.time_id = t.time_id

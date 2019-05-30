@@ -23,7 +23,7 @@ if (isset($_GET['appointments'])){
   Redirect("./view_book.php");
 }
 
-
+$er_message = "";
 if (isset($_GET['submit'])) {
   $type = $_GET['type'];
   $name= $_GET['name'];
@@ -35,9 +35,9 @@ if (isset($_GET['submit'])) {
           VALUES ('$type','$name','$email','$charge')";
 
   if ($conn->query($sql) === TRUE) {
-     echo "New record created successfully";
+     $er_message = "New record created successfully";
   } else {
-     echo "Error: " . $sql . "<br>" . $conn->error;
+     $er_message = "Unsuccessful";
   }
 }
 
@@ -75,7 +75,7 @@ $conn->close();
 
       <!-- Unnamed (Rectangle) -->
       <div id="u260" class="ax_default box_1">
-        <div id="u260_div" class=""></div>
+        <div id="u260_div" class=""><?php echo $er_message; ?></div>
         <div id="u260_text" class="text " style="display:none; visibility: hidden">
           <p></p>
         </div>
